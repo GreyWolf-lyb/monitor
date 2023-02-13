@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./request.js"></script>
+    <script src="./xgplayer.js"></script>
+    <script src="./xgplayer-flv.js"></script>
+
+    <style>
+        .search {
+            margin: 20px;
+        }
+
+        #search-input {
+            width: 500px;
+            height: 30px;
+            font-size: 20px;
+        }
+
+        #search-button {
+            display: inline-block;
+            background-color: blue;
+            color: #fff;
+            padding: 0 15px;
+            line-height: 36px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="search">
+            <input id="search-input" type="text">
+            <span id="search-button">播放</span>
+        </div>
+        <div id="video-box"></div>
+    </div>
+    <script>
+        var btn = document.getElementById('search-button');
+        btn.onclick = function () {
+            var urlText = document.getElementById('search-input').value;
+            // console.log(urlText)
+            let player = new FlvPlayer({
+                id: "video-box",
+                url: 'http://xxxxxxxx/ws/live?url=rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov',
+                hasVideo: true,
+                hasAudio: true,
+                volume: true,//音频
+                isLive: true,
+                height: 400,
+                width: 700,
+                loading: true,
+                error: true,
+                keyboard: true,
+                screenShot: true,
+                replay: true,
+                lang: 'zh-cn'
+            })
+            // player.play();
+        }
+
+    </script>
+</body>
+
+</html>
